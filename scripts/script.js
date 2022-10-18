@@ -1,8 +1,8 @@
 let GRIDHEIGHT = 4;
 let GRIDWIDTH = 4;
+const container = document.querySelector("div.container");
 
 function main(w=GRIDWIDTH) {
-    const container = document.querySelector("div.container");
     let containerHeight = getComputedStyle(container)['height'];
     containerHeight = Number(containerHeight.substring(0,containerHeight.length-2));
     let verticalHeight = containerHeight / GRIDHEIGHT;
