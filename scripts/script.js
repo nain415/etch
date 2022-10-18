@@ -1,7 +1,7 @@
 let GRIDHEIGHT = 4;
 let GRIDWIDTH = 4;
 
-function main(h=GRIDHEIGHT, w=GRIDWIDTH)
+function main(h=GRIDHEIGHT, w=GRIDWIDTH) {
     const container = document.querySelector("div.container");
     let containerHeight = getComputedStyle(container)['height'];
     containerHeight = Number(containerHeight.substring(0,containerHeight.length-2));
@@ -54,3 +54,6 @@ function main(h=GRIDHEIGHT, w=GRIDWIDTH)
     alterVertHeights();
     addHoverAttr();
     attachSizeListener();
+}
+
+main();
