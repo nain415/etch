@@ -7,12 +7,16 @@ function main(w=GRIDWIDTH) {
     containerHeight = Number(containerHeight.substring(0,containerHeight.length-2));
     let verticalHeight = containerHeight / GRIDHEIGHT;
 
+
+    gridContainers = document.querySelectorAll('.vertical');
+    for (gridContainer of gridContainers) {
     // loop through subs & add grid boxes to them in accordance with w
-    for (let j = 1; j <= w; j++) {
-    const gridBox = document.createElement("div");
-    gridBox.classList.add("box");
-    gridBox.setAttribute("id",`box-(${i},${j})`);
-    gridContainer.appendChild(gridBox);
+        for (let j = 1; j <= w; j++) {
+            const gridBox = document.createElement("div");
+            gridBox.classList.add("box");
+            // gridBox.setAttribute("id",`box-(${i},${j})`);
+            gridContainer.appendChild(gridBox);
+        };
     };
 
     function alterVertHeights() {
