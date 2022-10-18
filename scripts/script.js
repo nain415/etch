@@ -5,7 +5,13 @@ const gridWidth = 4;
 
 for (let i = 1; i <= gridHeight; i++) {
     // append sub containers with flexbox box model according to gridHeight
-    const subContainer = document.createElement("div");
-    subContainer.classList.toggle("vertical-container");
+    const gridContainer = document.createElement("div");
+    gridContainer.classList.add("vertical");
+    container.appendChild(gridContainer);
     // loop through subs & add grid boxes to them in accordance with gridWidth
+    for (let j = 1; j <= gridWidth; j++) {
+        const gridBox = document.createElement("div");
+        gridBox.classList.add("box");
+        gridContainer.appendChild(gridBox);
+    }
 }
