@@ -42,12 +42,17 @@ function main(h=GRIDHEIGHT, w=GRIDWIDTH) {
         console.log(sizeButton);
         sizeButton.addEventListener("click", () => {
             const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+            clearGrid();
             main(size,size);
         });
     }
 
     function setHtWdth(size) {
         GRIDHEIGHT = GRIDWIDTH = size;
+    }
+
+    function clearGrid() {
+        return null;
     }
 
     createGrid();
