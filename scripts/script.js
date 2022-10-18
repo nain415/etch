@@ -1,7 +1,7 @@
-const container = document.querySelector("div.container");
-
 const GRIDHEIGHT = 4;
 const GRIDWIDTH = 4;
+
+const container = document.querySelector("div.container");
 
 for (let i = 1; i <= GRIDHEIGHT; i++) {
     // append sub containers with flexbox box model according to GRIDHEIGHT
