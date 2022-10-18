@@ -1,3 +1,8 @@
 div.container {
     display:flex;
 }
+
+.vertical {
+    display: flex;
+    background-color: aqua;
+}
