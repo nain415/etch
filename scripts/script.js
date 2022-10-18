@@ -5,10 +5,10 @@ const container = document.querySelector("div.container");
 function main(w=GRIDWIDTH) {
     let containerHeight = getComputedStyle(container)['height'];
     containerHeight = Number(containerHeight.substring(0,containerHeight.length-2));
-    let verticalHeight = containerHeight / GRIDHEIGHT;
+    let gridContainers = document.querySelectorAll('.vertical');
+    let verticalHeight = containerHeight / gridContainers.length;
 
 
-    gridContainers = document.querySelectorAll('.vertical');
     for (gridContainer of gridContainers) {
     // loop through subs & add grid boxes to them in accordance with w
         for (let j = 1; j <= w; j++) {
@@ -38,7 +38,7 @@ function main(w=GRIDWIDTH) {
         sizeButton.addEventListener("click", () => {
             const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
             clearGrid();
-            createGrid();
+            createGrid(size);
             main(size);
         });
     }
@@ -46,6 +46,10 @@ function main(w=GRIDWIDTH) {
     function clearGrid() {
         boxes = document.querySelectorAll(".box");
         boxes.forEach(box => box.remove());
+
+        for (grid of gridContainers) {
+            grid.remove();
+        };
     }
 
     alterVertHeights();
@@ -53,8 +57,8 @@ function main(w=GRIDWIDTH) {
     attachSizeListener();
 }
 
-function createGrid() {
-    for (let i = 1; i <= GRIDHEIGHT; i++) {
+function createGrid(h=GRIDHEIGHT) {
+    for (let i = 1; i <= h; i++) {
         // append sub containers with flexbox box model according to GRIDHEIGHT
         const gridContainer = document.createElement("div");
         gridContainer.classList.add("vertical");
