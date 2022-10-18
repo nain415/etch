@@ -1,5 +1,5 @@
-const GRIDHEIGHT = 4;
-const GRIDWIDTH = 4;
+let GRIDHEIGHT = 4;
+let GRIDWIDTH = 4;
 
 const container = document.querySelector("div.container");
 let containerHeight = getComputedStyle(container)['height'];
@@ -23,7 +23,6 @@ function createGrid() {
     };
 }
 
-
 function alterVertHeights() {
     let verticalList = document.querySelectorAll(".vertical");
     verticalList.forEach((vert) => {
@@ -36,6 +35,10 @@ function addHoverAttr() {
     boxes = document.querySelectorAll(".box");
     boxes.forEach(box => box.addEventListener("mouseover", () => box.classList.add("hovered")));
 }
+
+sizeButton = document.querySelector('button .change-size');
+sizeButton.addEventListener("click", () => setHtWdth);
+
 
 createGrid();
 alterVertHeights();
