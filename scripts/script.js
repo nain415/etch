@@ -19,7 +19,7 @@ function main(w=GRIDWIDTH) {
         };
     };
 
-    function alterVertHeights() {
+    function setVertHeights() {
         let verticalList = document.querySelectorAll(".vertical");
         verticalList.forEach((vert) => {
                                         vert.style.setProperty("height", `${String(verticalHeight)}px`);
@@ -52,7 +52,7 @@ function main(w=GRIDWIDTH) {
         };
     }
 
-    alterVertHeights();
+    setVertHeights();
     addHoverAttr();
     attachSizeListener();
 }
