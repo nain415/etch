@@ -1,14 +1,14 @@
 let GRIDHEIGHT = 4;
 let GRIDWIDTH = 4;
 
-function main(h=GRIDHEIGHT, w=GRIDWIDTH) {
+function main(w=GRIDWIDTH) {
     const container = document.querySelector("div.container");
     let containerHeight = getComputedStyle(container)['height'];
     containerHeight = Number(containerHeight.substring(0,containerHeight.length-2));
     let verticalHeight = containerHeight / GRIDHEIGHT;
 
-    // loop through subs & add grid boxes to them in accordance with GRIDWIDTH
-    for (let j = 1; j <= GRIDWIDTH; j++) {
+    // loop through subs & add grid boxes to them in accordance with w
+    for (let j = 1; j <= w; j++) {
     const gridBox = document.createElement("div");
     gridBox.classList.add("box");
     gridBox.setAttribute("id",`box-(${i},${j})`);
@@ -34,7 +34,7 @@ function main(h=GRIDHEIGHT, w=GRIDWIDTH) {
         sizeButton.addEventListener("click", () => {
             const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
             clearGrid();
-            main(size,size);
+            main(size);
         });
     }
 
