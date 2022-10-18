@@ -7,7 +7,6 @@ div.container {
 .vertical {
     display: flex;
     background-color: aqua;
-    height: 12.5vw;
 }
 
 .box {
