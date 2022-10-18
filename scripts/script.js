@@ -27,11 +27,16 @@ function createGrid() {
 function alterVertHeights() {
     let verticalList = document.querySelectorAll(".vertical");
     verticalList.forEach((vert) => {
-                                    console.log(vert);
                                     vert.style.setProperty("height", `${String(verticalHeight)}px`);
                                 }
     );
 }
 
+function addHoverAttr() {
+    boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => box.addEventListener("mouseover", () => box.classList.add("hovered")));
+}
+
 createGrid();
 alterVertHeights();
+addHoverAttr();
