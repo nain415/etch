@@ -38,6 +38,7 @@ function main(w=GRIDWIDTH) {
         sizeButton.addEventListener("click", () => {
             const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
             clearGrid();
+            createGrid();
             main(size);
         });
     }
@@ -47,7 +48,6 @@ function main(w=GRIDWIDTH) {
         boxes.forEach(box => box.remove());
     }
 
-    createGrid();
     alterVertHeights();
     addHoverAttr();
     attachSizeListener();
@@ -62,6 +62,5 @@ function createGrid() {
         container.appendChild(gridContainer);
     }
 }
-
 createGrid();
 main();
