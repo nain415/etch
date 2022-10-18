@@ -1,7 +1,7 @@
 div.container {
     display: inline-block;
-    height: 50vw;
-    width: 50vw;
+    height: 40vw;
+    width: 40vw;
 }
 
 .vertical {
@@ -13,4 +13,9 @@ div.container {
     flex: 1;
     align-items: flex-start;
     background-color: beige;
+}
+
+hovered {
+    background-color: black;
+    transition: 0.7s all;
 }
