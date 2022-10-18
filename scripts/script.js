@@ -36,10 +36,23 @@ function addHoverAttr() {
     boxes.forEach(box => box.addEventListener("mouseover", () => box.classList.add("hovered")));
 }
 
-sizeButton = document.querySelector('button .change-size');
-sizeButton.addEventListener("click", () => setHtWdth);
+function attachSizeListener() {
+    sizeButton = document.querySelector('button#change-size');
+    console.log(sizeButton);
+    sizeButton.addEventListener("click", () => {
+        const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+        setHtWdth(size);
+        createGrid();
+        alterVertHeights();
+        addHoverAttr();
+    });
+}
 
+function setHtWdth(size) {
+    GRIDHEIGHT = GRIDWIDTH = size;
+}
 
 createGrid();
 alterVertHeights();
 addHoverAttr();
+attachSizeListener();
