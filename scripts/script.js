@@ -53,7 +53,13 @@ function attachSizeListener() {
 }
 
 function resizeClicked() {
-    const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+    
+    let size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+    while (size > 100) {
+        alert("Max value of 100.  Please specify another entry.")
+        size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+    }
+
     clearGrid();
     createGrid(size);
     main(size);
