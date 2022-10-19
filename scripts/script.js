@@ -29,12 +29,34 @@ function main(w=GRIDWIDTH) {
 
     function addHoverAttr() {
         boxes = document.querySelectorAll(".box");
-        boxes.forEach(box => box.addEventListener("mouseover", () => box.classList.add("hovered")));
+        boxes.forEach(box => box.addEventListener("mouseover", () => {
+            let color = getComputedStyle(box)["background-color"];
+            console.log(color);
+            if (color !== "rgb(0, 0, 0)") {
+                if (color.substring(0,4) !== "rgba") { box.style.setProperty("background-color", "rgba(0,0,0,0.1")}
+                else {
+                    color = color.split(',')
+                    // console.log(color);
+                    let alpha = Number(color[color.length - 1].slice(0,-1));
+                    if (alpha < 1) alpha += 0.1;
+                    console.log(alpha);
+                    alpha = ' ' + String(alpha);
+
+                    color.pop();
+                    color.push(alpha);
+                    color.join(',');
+                    box.style.setProperty("background-color", color);
+                }
+            }
+            }));
     }
 
     setVertHeights();
     addHoverAttr();
 }
+
+
+
 
 function createGrid(h=GRIDHEIGHT) {
     for (let i = 1; i <= h; i++) {
@@ -48,7 +70,6 @@ function createGrid(h=GRIDHEIGHT) {
 
 function attachSizeListener() {
     sizeButton = document.querySelector('button#change-size');
-    console.log(sizeButton.getAttribute("listener"));
     sizeButton.addEventListener("click", resizeClicked);
 }
 
