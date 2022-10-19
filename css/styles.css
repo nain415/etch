@@ -6,7 +6,7 @@ div.container {
 
 .vertical {
     display: flex;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .box {
@@ -16,6 +16,6 @@ div.container {
 }
 
 .hovered {
-    background-color: black;
+    /* background-color: black; */
     transition: 0.7s all;
 }
