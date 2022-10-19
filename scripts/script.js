@@ -32,29 +32,8 @@ function main(w=GRIDWIDTH) {
         boxes.forEach(box => box.addEventListener("mouseover", () => box.classList.add("hovered")));
     }
 
-    function attachSizeListener() {
-        sizeButton = document.querySelector('button#change-size');
-        console.log(sizeButton);
-        sizeButton.addEventListener("click", () => {
-            const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
-            clearGrid();
-            createGrid(size);
-            main(size);
-        });
-    }
-
-    function clearGrid() {
-        boxes = document.querySelectorAll(".box");
-        boxes.forEach(box => box.remove());
-
-        for (grid of gridContainers) {
-            grid.remove();
-        };
-    }
-
     setVertHeights();
     addHoverAttr();
-    attachSizeListener();
 }
 
 function createGrid(h=GRIDHEIGHT) {
@@ -66,5 +45,29 @@ function createGrid(h=GRIDHEIGHT) {
         container.appendChild(gridContainer);
     }
 }
+
+function attachSizeListener() {
+    sizeButton = document.querySelector('button#change-size');
+    console.log(sizeButton.getAttribute("listener"));
+    sizeButton.addEventListener("click", resizeClicked);
+}
+
+function resizeClicked() {
+    const size = Number(prompt("Specify NUM to make NUMxNUM grid", 10));
+    clearGrid();
+    createGrid(size);
+    main(size);
+}
+
+function clearGrid() {
+    boxes = document.querySelectorAll(".box");
+    boxes.forEach(box => box.remove());
+    let gridContainers = document.querySelectorAll('.vertical');
+    for (grid of gridContainers) {
+        grid.remove();
+    };
+}
+
 createGrid();
+attachSizeListener();
 main();
